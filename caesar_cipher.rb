@@ -12,5 +12,3 @@ def caesar_cipher_char(char, shift)
     end
     return char_ord.chr
 end
-
-puts caesar_cipher("What a string!", 5)
