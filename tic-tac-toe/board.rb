@@ -14,8 +14,14 @@ class Board
 
     def player_won?(symbol, row, col)
         won = @board[row].all? { |cell| cell == symbol } || @board.all? { |row| row[col] == symbol }
-        if !won and (row == 1 and col == 1)
-            won = (@board[0][0] == symbol and @board[2][2] == symbol) || (@board[0][2] == symbol and @board[2][0] == symbol)
+        if !won && (row + col) % 2 == 0
+            diag1 = true
+            diag2 = true
+            for i in 0..2
+                diag1 &&= @board[i][i] == symbol
+                diag2 &&= @board[i][2-i] == symbol
+            end
+            won = diag1 || diag2
         end
         return won
     end
