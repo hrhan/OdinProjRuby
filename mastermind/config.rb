@@ -1,4 +1,6 @@
 class Config
+    attr_reader :max_num_repeat, :colours, :shuffle_answer
+
     def initialize(max_num_repeat, num_colours, shuffle_answer)
         @max_num_repeat = max_num_repeat
         @colours = AVAILABLE_COLOURS[0, num_colours]
@@ -12,13 +14,9 @@ class Config
             @colours = AVAILABLE_COLOURS[0, num_colours]
             @shuffle_answer = shuffle_answer
         else
-            puts "Configuration could not be updated because the new configuration is invalid: "
+            puts "Configuration could not be updated because the provided configuration is invalid: "
             errors.each { |error| puts "\t - #{error}" }
         end
-    end
-
-    def display_available_colours()
-        puts "Available colours"
     end
 
     private 

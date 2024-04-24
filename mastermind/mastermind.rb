@@ -15,15 +15,15 @@ class Mastermind
     end
 
     def correct_guess?(guess)
-        return @secret_code == guess.map { |colour| colour.downcase }
+        return @secret_code == guess
     end
 
     def compare_code(guess)
         answer = []
         guess.each_index { |index| 
-            if guess[index].downcase == @secret_code[index]
+            if guess[index] == @secret_code[index]
                 answer.push("B")
-            elsif @secret_code.include?(guess[index].downcase)
+            elsif @secret_code.include?(guess[index])
                 answer.push("W")
             else
                 answer.push(" ")
