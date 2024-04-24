@@ -1,13 +1,13 @@
 require_relative "board"
 
-class Game
+class Session
     def initialize()
         @board = Board.new
         @player1 = :X
         @player2 = :O
     end
 
-    def start_game()
+    def start_session()
         for turn in 0..8 do
             if turn % 2 == 0
                 player = @player1

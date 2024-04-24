@@ -1,4 +1,4 @@
-require_relative "game"
+require_relative "session"
 
 def print_menu()
     puts "Please enter \'play\' to start the game and enter \'quit\' or \'exit\' to stop playing."
@@ -11,8 +11,8 @@ while true
     print_menu()
     selected = gets.chomp
     if selected == "play"
-        game = Game.new
-        winner = game.start_game()
+        session = Session.new
+        winner = session.start_session()
         if winner
             scores[winner] += 1
         end
