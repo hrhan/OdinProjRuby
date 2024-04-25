@@ -9,7 +9,7 @@ scores = { :X => 0, :O => 0 }
 
 while true
     print_menu()
-    selected = gets.chomp
+    selected = gets.chomp.downcase
     if selected == "play"
         session = Session.new
         winner = session.start_session()
@@ -21,6 +21,7 @@ while true
         scores.each { |player, score| puts "#{player}: #{score}" }
         puts "\n"
     elsif selected == "quit" || selected == "exit"
+        puts "Thanks for playing!"
         break
     end
 end
