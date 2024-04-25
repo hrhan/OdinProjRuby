@@ -1,6 +1,4 @@
 class Session
-
-    attr_reader :config, :mastermind, :num_turns
     def initialize(config, mastermind, num_turns: 12)
         @config = config
         @mastermind = mastermind
@@ -8,7 +6,7 @@ class Session
     end
 
     def start_session()
-        puts "\nAvailable colours: #{@config.colours.map { |colour| colour.capitalize }.join(" ")}"
+        puts "\nColours that can appear in this round: #{@config.colours.map { |colour| colour.capitalize }.join(" ")}"
 
         @mastermind.select_secret_code
         puts "\nMastermind has decided the secret code.. Think you can crack it in #{@num_turns} turns?"
