@@ -48,10 +48,10 @@ def find_peak_reg_hours(reg_hour_hash)
 end
 
 # Assignment 3
-def find_peak_dows(reg_dow_hash)
+def find_peak_weekdays(reg_dow_hash)
     weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-    peak_dows = find_max_value_key(reg_dow_hash)
-    return peak_dows.map{ |dow| weekdays[dow] }
+    peak_weekdays = find_max_value_key(reg_dow_hash)
+    return peak_weekdays.map{ |dow| weekdays[dow] }
 end
 
 def find_max_value_key(hash)
@@ -103,6 +103,6 @@ contents.each do |row|
 end
 
 peak_reg_hours = find_peak_reg_hours(reg_hour_hash)
-peak_reg_dow = find_peak_dows(reg_dow_hash)
+peak_reg_weekdays = find_peak_weekdays(reg_dow_hash)
 
-puts "Peak registration weekdays are #{peak_reg_dow.join(" and ")} and peak registration hours are #{peak_reg_hours.join(" and ")}"
+puts "Peak registration weekdays are #{peak_reg_weekdays.join(" and ")} and peak registration hours are #{peak_reg_hours.join(" and ")}"
