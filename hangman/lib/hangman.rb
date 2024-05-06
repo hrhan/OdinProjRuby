@@ -1,7 +1,7 @@
 require 'json'
 
 SAVE_FILE_NAME = ".hangman_save"
-HANGMAN = ["head", "neck", "left arm", "right arm", "torso", "left leg", "right leg"]
+HANGMAN = ["head", "neck", "left arm", "torso", "right arm", "left leg", "right leg"]
 
 def load_words()
     dict = File.readlines("google-10000-english-no-swears.txt", chomp: true)
@@ -10,6 +10,13 @@ end
 
 def display_current_guess(guess)
     puts guess.join(" ")
+end
+
+def display_hangman(remaining_tries)
+    if remaining_tries < HANGMAN.length
+        puts "Hangman:"
+        HANGMAN[0..(HANGMAN.length - remaining_tries - 1)].each { |part| puts "\t#{part}" }
+    end
 end
 
 def update_guess(word, guess, letter)
@@ -69,6 +76,7 @@ def play_game(word, guess, remaining_tries = HANGMAN.length)
             end
         end
         display_current_guess(guess)
+        display_hangman(remaining_tries)
     end
 
     if remaining_tries == 0
